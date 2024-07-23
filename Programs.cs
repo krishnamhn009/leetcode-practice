@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
-using static System.Runtime.InteropServices.JavaScript.JSType;
+﻿using CodePractice;
+
 
 namespace ConsoleApp2
 {
@@ -16,7 +11,7 @@ namespace ConsoleApp2
             int[] sortedArray = new int[nums.Length];
             int[] ans = new int[nums.Length];
             Array.Copy(nums, sortedArray, nums.Length);
-            MergeSort(sortedArray, 0, nums.Length-1);
+            Sort.MergeSort(sortedArray, 0, nums.Length-1);
             for (int i = 0; i < nums.Length; ++i)
             {
                 ans[i] = Array.IndexOf(sortedArray, nums[i]);
@@ -24,52 +19,7 @@ namespace ConsoleApp2
             return ans;
         }
 
-        static void MergeSort(int[] arr, int left, int right)
-        {
-            if (left < right)
-            {
-                int middle = left + (right - left) / 2;
-                MergeSort(arr, left, middle);
-                MergeSort(arr, middle + 1, right);
-                Merge(arr, left, middle, right);
-            }
-        }
-
-        static void Merge(int[] array, int left, int middle, int right)
-        {
-            var leftArrayLength = middle - left + 1;
-            var rightArrayLength = right - middle;
-            var leftTempArray = new int[leftArrayLength];
-            var rightTempArray = new int[rightArrayLength];
-            int i, j;
-            for (i = 0; i < leftArrayLength; ++i)
-                leftTempArray[i] = array[left + i];
-            for (j = 0; j < rightArrayLength; ++j)
-                rightTempArray[j] = array[middle + 1 + j];
-            i = 0;
-            j = 0;
-            int k = left;
-            while (i < leftArrayLength && j < rightArrayLength)
-            {
-                if (leftTempArray[i] <= rightTempArray[j])
-                {
-                    array[k++] = leftTempArray[i++];
-                }
-                else
-                {
-                    array[k++] = rightTempArray[j++];
-                }
-            }
-            while (i < leftArrayLength)
-            {
-                array[k++] = leftTempArray[i++];
-            }
-            while (j < rightArrayLength)
-            {
-                array[k++] = rightTempArray[j++];
-            }
-        }
-
+     
 
         public static  int[][] MatrixBlockSum(int[][] mat, int k)
         {
