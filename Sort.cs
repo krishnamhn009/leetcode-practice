@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace CodePractice
 {
-    public class Sort
+
+    public class Sort : IComparer<int>
     {
        public static void MergeSort(int[] arr, int left, int right)
         {
@@ -85,6 +87,33 @@ namespace CodePractice
             int temp = value1;
             value1 = value2;
             value2 = temp;
+        }
+
+        public  int Compare(int x, int y)
+        {
+            string num1=x.ToString();
+            string num2 = y.ToString();
+            return string.Compare(num1 + num2, num2 + num1,StringComparison.Ordinal);
+        }
+
+        public static void  ArrangeToFormLargestNum(int[] nums)
+        {
+            Array.Sort(nums,(a,b)=>string.Compare(b.ToString()+a.ToString(),a.ToString()+b.ToString()));
+            foreach (int num in nums)
+            {
+                Console.Write(num);
+            }
+            Console.WriteLine();
+        }
+
+        public static void ArrangeWordsByLength(string[] nums)
+        {
+            Array.Sort(nums, (a, b) =>  a.Length - b.Length == 0?  string.CompareOrdinal(a.ToLower(),b.ToLower()): a.Length - b.Length );
+            foreach (string num in nums)
+            {
+                Console.Write(num);
+            }
+            Console.WriteLine();
         }
 
     }

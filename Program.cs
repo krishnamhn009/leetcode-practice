@@ -4,9 +4,10 @@ using ConsoleApp2;
 using System.Text;
 
 Console.WriteLine("Hello, World!");
-
-Graph.BFSTraversal();
-Graph.DFSTraversal();
+Sort.ArrangeWordsByLength(["I","a","b", "am", "data", "sciencetist","teach","heycoach"]);
+//Sort.ArrangeToFormLargestNum([9,41,98,1,7,24,53,82]);
+//Graph.BFSTraversal();
+//Graph.DFSTraversal();
 
 //Programs.SmallerNumbersThanCurrent([8, 1, 2, 2, 3]);
 //Programs.MatrixBlockSum([[1, 2, 3], [4, 5, 6], [7, 8, 9]], 1);
