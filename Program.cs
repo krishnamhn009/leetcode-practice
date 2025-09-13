@@ -4,7 +4,10 @@ using ConsoleApp2;
 using System.Text;
 
 Console.WriteLine("Hello, World!");
-Sort.ArrangeWordsByLength(["I","a","b", "am", "data", "sciencetist","teach","heycoach"]);
+//Sort.ArrangeWordsByLength(["I","a","b", "am", "data", "sciencetist","teach","heycoach"]);
+PanindromNumber.IsPalindrome(7658745);
+PanindromNumber.GetLargestPalindromeNumber(765488745);
+
 //Sort.ArrangeToFormLargestNum([9,41,98,1,7,24,53,82]);
 //Graph.BFSTraversal();
 //Graph.DFSTraversal();
